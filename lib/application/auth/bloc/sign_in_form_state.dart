@@ -15,6 +15,6 @@ class SignInFormState with _$SignInFormState {
         password: Password(''),
         showErrorMessages: false,
         isSubmiting: false,
-        authFailureOrSuccess: const None(),
+        authFailureOrSuccess: none(),
       );
 }
