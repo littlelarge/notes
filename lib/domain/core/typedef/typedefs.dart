@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:notes/domain/auth/auth_failure.dart';
-import 'package:notes/domain/core/failures.dart';
+import 'package:notes/domain/core/errors/failures.dart';
 
 typedef Value<T> = Either<ValueFailure<T>, T>;
 

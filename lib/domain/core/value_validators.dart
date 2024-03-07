@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:notes/domain/core/failures.dart';
-import 'package:notes/domain/core/typedefs.dart';
+import 'package:notes/domain/core/errors/failures.dart';
+import 'package:notes/domain/core/typedef/typedefs.dart';
 
 Value<String> validateEmailAddress(String input) {
   const emailRegex =
