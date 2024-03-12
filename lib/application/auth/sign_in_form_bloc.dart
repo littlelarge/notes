@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:notes/domain/auth/auth_failure.dart';
@@ -14,8 +15,8 @@ part 'sign_in_form_state.dart';
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
-    on<SignInFormEvent>((event, emit) {
-      event.map(
+    on<SignInFormEvent>((event, emit) async {
+      await event.map(
         emailChanged: (e) {
           emit(
             state.copyWith(
@@ -99,7 +100,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     emit(
       state.copyWith(
         isSubmiting: false,
-        showErrorMessages: true,
+        showErrorMessages: AutovalidateMode.always,
         authFailureOrSuccess: optionOf(failureOrSuccess),
       ),
     );

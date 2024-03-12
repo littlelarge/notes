@@ -819,7 +819,7 @@ abstract class SignInWithGooglePressed implements SignInFormEvent {
 mixin _$SignInFormState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmiting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -838,7 +838,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      bool showErrorMessages,
+      AutovalidateMode showErrorMessages,
       bool isSubmiting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccess});
 }
@@ -874,7 +874,7 @@ class _$SignInFormStateCopyWithImpl<$Res, $Val extends SignInFormState>
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode,
       isSubmiting: null == isSubmiting
           ? _value.isSubmiting
           : isSubmiting // ignore: cast_nullable_to_non_nullable
@@ -898,7 +898,7 @@ abstract class _$$SignInFormStateImplCopyWith<$Res>
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      bool showErrorMessages,
+      AutovalidateMode showErrorMessages,
       bool isSubmiting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccess});
 }
@@ -932,7 +932,7 @@ class __$$SignInFormStateImplCopyWithImpl<$Res>
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode,
       isSubmiting: null == isSubmiting
           ? _value.isSubmiting
           : isSubmiting // ignore: cast_nullable_to_non_nullable
@@ -960,7 +960,7 @@ class _$SignInFormStateImpl implements _SignInFormState {
   @override
   final Password password;
   @override
-  final bool showErrorMessages;
+  final AutovalidateMode showErrorMessages;
   @override
   final bool isSubmiting;
   @override
@@ -1004,7 +1004,7 @@ abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
       {required final EmailAddress emailAddress,
       required final Password password,
-      required final bool showErrorMessages,
+      required final AutovalidateMode showErrorMessages,
       required final bool isSubmiting,
       required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccess}) = _$SignInFormStateImpl;
@@ -1014,7 +1014,7 @@ abstract class _SignInFormState implements SignInFormState {
   @override
   Password get password;
   @override
-  bool get showErrorMessages;
+  AutovalidateMode get showErrorMessages;
   @override
   bool get isSubmiting;
   @override

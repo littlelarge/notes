@@ -8,8 +8,7 @@ import 'package:notes/domain/auth/i_auth_facede.dart';
 import 'package:notes/domain/auth/value_objects.dart';
 import 'package:notes/domain/core/typedef/typedefs.dart';
 
-@lazySingleton
-@Injectable(as: IAuthFacade)
+@LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacede implements IAuthFacade {
   FirebaseAuthFacede(this._firebaseAuth, this._googleSignIn);
 
