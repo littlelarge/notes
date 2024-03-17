@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:notes/application/auth/sign_in_form_bloc.dart';
+import 'package:notes/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:notes/presentation/core/assets/assets.dart';
 import 'package:notes/presentation/core/colours/colours.dart';
 
