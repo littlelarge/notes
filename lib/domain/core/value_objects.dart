@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:notes/domain/core/errors/errors.dart.dart';
 import 'package:notes/domain/core/errors/failures.dart';
 import 'package:notes/domain/core/typedef/typedefs.dart';
+import 'package:uuid/uuid.dart';
 
 abstract class ValueObject<T> extends Equatable {
   const ValueObject(this.value);
@@ -21,4 +22,20 @@ abstract class ValueObject<T> extends Equatable {
   }
 
   bool isValid() => value.isRight();
+}
+
+class UniqueId extends ValueObject<String> {
+  factory UniqueId() {
+    return UniqueId._(
+      right(const Uuid().v1()),
+    );
+  }
+
+  factory UniqueId.fromUniqueString(String uniqueId) {
+    return UniqueId._(
+      right(uniqueId),
+    );
+  }
+
+  const UniqueId._(super.value);
 }
