@@ -163,7 +163,9 @@ class SignInForm extends StatelessWidget {
                 if (state.isSubmiting) ...[
                   SizedBox(height: 20.r),
                   SizedBox(
-                      width: 200.r, child: const LinearProgressIndicator()),
+                    width: 200.r,
+                    child: const LinearProgressIndicator(),
+                  ),
                 ],
               ],
             ),
