@@ -69,7 +69,10 @@ class SignInForm extends StatelessWidget {
                         .value
                         .fold(
                           (f) => f.maybeMap(
-                            invalidEmail: (_) => 'Invalid Email',
+                            auth: (authFailure) => authFailure.f.maybeMap(
+                              invalidEmail: (_) => 'Invalid Email',
+                              orElse: () => null,
+                            ),
                             orElse: () => null,
                           ),
                           (r) => null,
@@ -100,7 +103,10 @@ class SignInForm extends StatelessWidget {
                         .value
                         .fold(
                           (f) => f.maybeMap(
-                            shortPassword: (_) => 'Short Password',
+                            auth: (authFailure) => authFailure.f.maybeMap(
+                              shortPassword: (_) => 'Short Password',
+                              orElse: () => null,
+                            ),
                             orElse: () => null,
                           ),
                           (r) => null,
@@ -154,6 +160,11 @@ class SignInForm extends StatelessWidget {
                     child: const Text('Sign In with Google'),
                   ),
                 ),
+                if (state.isSubmiting) ...[
+                  SizedBox(height: 20.r),
+                  SizedBox(
+                      width: 200.r, child: const LinearProgressIndicator()),
+                ],
               ],
             ),
           ),

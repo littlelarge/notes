@@ -9,7 +9,7 @@ Value<String> validateEmailAddress(String input) {
   if (RegExp(emailRegex).hasMatch(input)) {
     return Right(input);
   } else {
-    return Left(InvalidEmail(failedValue: input));
+    return Left(ValueFailure.auth(InvalidEmail(failedValue: input)));
   }
 }
 
@@ -17,6 +17,6 @@ Value<String> validatePassword(String input) {
   if (input.length >= 6) {
     return Right(input);
   } else {
-    return Left(ShortPassword(shortPassword: input));
+    return Left(ValueFailure.auth(ShortPassword(shortPassword: input)));
   }
 }
