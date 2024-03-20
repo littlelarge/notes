@@ -21,6 +21,13 @@ abstract class ValueObject<T> extends Equatable {
     );
   }
 
+  Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
+    return value.fold(
+      left,
+      (r) => right(unit),
+    );
+  }
+
   bool isValid() => value.isRight();
 }
 
