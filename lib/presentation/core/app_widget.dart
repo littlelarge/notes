@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:notes/application/auth/auth/auth_bloc.dart';
+import 'package:notes/application/auth/auth_bloc.dart';
 import 'package:notes/injection.dart';
 import 'package:notes/presentation/core/colours/colours.dart';
 import 'package:notes/presentation/core/utils/sizes.dart';
