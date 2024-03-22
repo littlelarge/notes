@@ -1,5 +1,7 @@
 import 'package:notes/domain/core/errors/failures.dart';
 
+class NotAuthenticatedError extends Error {}
+
 class UnexpectedValueError<T> extends Error {
   UnexpectedValueError(this.valueFailure);
 
