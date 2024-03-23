@@ -10,8 +10,8 @@ import 'package:notes/domain/notes/note.dart';
 import 'package:notes/domain/notes/todo_item.dart';
 import 'package:notes/domain/notes/value_objects.dart';
 
-part 'notes_dto.freezed.dart';
-part 'notes_dto.g.dart';
+part 'note_dtos.freezed.dart';
+part 'note_dtos.g.dart';
 
 @freezed
 abstract class NoteDto implements _$NoteDto {

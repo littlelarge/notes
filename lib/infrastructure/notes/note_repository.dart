@@ -8,7 +8,7 @@ import 'package:notes/domain/notes/i_note_repository.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/domain/notes/note_failure.dart';
 import 'package:notes/infrastructure/core/firestore_helpers.dart';
-import 'package:notes/infrastructure/notes/notes_dto.dart';
+import 'package:notes/infrastructure/notes/note_dtos.dart';
 import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: INoteRepository)
