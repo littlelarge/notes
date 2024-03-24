@@ -11,8 +11,8 @@ part 'auth_bloc.freezed.dart';
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._authFacade) : super(const Initial()) {
-    on<AuthEvent>((event, emit) {
-      event.map(
+    on<AuthEvent>((event, emit) async {
+      await event.map(
         authCheckRequested: (e) async {
           final userOption = await _authFacade.getSignedInUser();
 

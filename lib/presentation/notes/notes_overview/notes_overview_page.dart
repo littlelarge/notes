@@ -6,6 +6,7 @@ import 'package:notes/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:notes/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:notes/injection.dart';
 import 'package:notes/presentation/core/colours/colours.dart';
+import 'package:notes/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:notes/presentation/routes/router.dart';
 
 class NoteOverviewPage extends StatelessWidget {
@@ -72,6 +73,7 @@ class NoteOverviewPage extends StatelessWidget {
               ),
             ],
           ),
+          body: const NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               // TODO(littlelarge): add todo

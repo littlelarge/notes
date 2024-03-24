@@ -27,10 +27,10 @@ class NoteRepository implements INoteRepository {
         .map(
           (snapshot) => right<NoteFailure, KtList<Note>>(
             snapshot.docs.map((doc) {
-              NoteDto.fromFirestore(
+              return NoteDto.fromFirestore(
                 doc as QueryDocumentSnapshot<Map<String, dynamic>>,
               ).toDomain();
-            }).toImmutableList() as KtList<Note>,
+            }).toImmutableList(),
           ),
         )
         .onErrorReturnWith((e, stackTrace) {
