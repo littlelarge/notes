@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:notes/application/auth/auth_bloc.dart';
 import 'package:notes/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:notes/presentation/core/assets/assets.dart';
 import 'package:notes/presentation/core/colours/colours.dart';
+import 'package:notes/presentation/routes/router.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -31,7 +33,11 @@ class SignInForm extends StatelessWidget {
               ).show(context);
             },
             (r) {
-              // TODO(littlelarge): Navigation
+              NoteOverviewRoute().go(context);
+              
+              context
+                  .read<AuthBloc>()
+                  .add(const AuthEvent.authCheckRequested());
             },
           );
         });

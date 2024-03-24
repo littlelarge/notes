@@ -34,6 +34,9 @@ class AppWidget extends StatelessWidget {
             iconTheme: IconTheme.of(context).copyWith(size: 24.r),
             appBarTheme: AppBarTheme.of(context)
                 .copyWith(toolbarHeight: Sizes.appBarHeight),
+            floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colours.primary,
+            ),
             textTheme: Theme.of(context).textTheme.copyWith(
                   displayLarge: TextStyle(fontSize: 57.r),
                   displayMedium: TextStyle(fontSize: 45.r),

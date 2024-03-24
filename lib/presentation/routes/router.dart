@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:notes/presentation/notes/notes_overview/notes_overview_page.dart';
 import 'package:notes/presentation/sign_in/sign_in_page.dart';
 import 'package:notes/presentation/splash/splash_page.dart';
 
@@ -21,4 +22,13 @@ class SplashRoute extends GoRouteData {
 class SignInRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) => const SignInPage();
+}
+
+@TypedGoRoute<NoteOverviewRoute>(
+  path: '/noteOverview',
+)
+class NoteOverviewRoute extends GoRouteData {
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const NoteOverviewPage();
 }
