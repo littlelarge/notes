@@ -67,18 +67,12 @@ class NoteOverviewPage extends StatelessWidget {
             ),
             actions: const [
               UncompletedSwitch(),
-              // IconButton(
-              //   onPressed: () {
-              //     // TODO(littlelarge): uncompleted todos switch
-              //   },
-              //   icon: const Icon(Icons.indeterminate_check_box_rounded),
-              // ),
             ],
           ),
           body: const NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // TODO(littlelarge): add todo
+              NoteFormRoute(null).push<NoteFormRoute>(context);
             },
             child: const Icon(Icons.add_rounded, color: Colours.primaryWhite),
           ),

@@ -7,6 +7,7 @@ import 'package:notes/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/domain/notes/todo_item.dart';
 import 'package:notes/presentation/core/colours/colours.dart';
+import 'package:notes/presentation/routes/router.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({
@@ -22,7 +23,7 @@ class NoteCard extends StatelessWidget {
       color: note.color.getOrCrash(),
       child: InkWell(
         onTap: () {
-          // TODO(littlelarge): Implement navigation
+          NoteFormRoute(note).push<NoteFormRoute>(context);
         },
         onLongPress: () {
           final noteActorBloc = context.read<NoteActorBloc>();

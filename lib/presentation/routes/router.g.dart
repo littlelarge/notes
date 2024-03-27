@@ -10,6 +10,7 @@ List<RouteBase> get $appRoutes => [
       $splashRoute,
       $signInRoute,
       $noteOverviewRoute,
+      $noteFormRoute,
     ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -77,4 +78,30 @@ extension $NoteOverviewRouteExtension on NoteOverviewRoute {
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $noteFormRoute => GoRouteData.$route(
+      path: '/noteForm',
+      factory: $NoteFormRouteExtension._fromState,
+    );
+
+extension $NoteFormRouteExtension on NoteFormRoute {
+  static NoteFormRoute _fromState(GoRouterState state) => NoteFormRoute(
+        state.extra as Note?,
+      );
+
+  String get location => GoRouteData.$location(
+        '/noteForm',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
