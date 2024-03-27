@@ -51,7 +51,7 @@ class NoteRepository implements INoteRepository {
         .snapshots()
         .map(
           (snapshot) => snapshot.docs.map((doc) {
-            NoteDto.fromFirestore(
+            return NoteDto.fromFirestore(
               doc as QueryDocumentSnapshot<Map<String, dynamic>>,
             ).toDomain();
           }).whereType<Note>(),
