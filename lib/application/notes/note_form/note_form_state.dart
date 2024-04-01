@@ -4,7 +4,7 @@ part of 'note_form_bloc.dart';
 abstract class NoteFormState with _$NoteFormState {
   const factory NoteFormState({
     required Note note,
-    required bool showErrorMessages,
+    required AutovalidateMode showErrorMessages,
     required bool isEditting,
     required bool isSaving, // to showing progress
     required Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption,
@@ -12,7 +12,7 @@ abstract class NoteFormState with _$NoteFormState {
 
   factory NoteFormState.initial() => NoteFormState(
         note: Note.empty(),
-        showErrorMessages: false,
+        showErrorMessages: AutovalidateMode.disabled,
         isEditting: false,
         isSaving: false,
         saveFailureOrSuccessOption: none(),

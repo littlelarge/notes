@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -19,8 +18,8 @@ part 'note_form_bloc.freezed.dart';
 @injectable
 class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
   NoteFormBloc(this._noteRepository) : super(NoteFormState.initial()) {
-    on<NoteFormEvent>((event, emit) {
-      event.map(
+    on<NoteFormEvent>((event, emit) async {
+      await event.map(
         initialized: (e) {
           emit(
             e.initialNoteOption.fold(
@@ -75,7 +74,7 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
           emit(
             state.copyWith(
               isSaving: false,
-              showErrorMessages: true,
+              showErrorMessages: AutovalidateMode.always,
               saveFailureOrSuccessOption: optionOf(failureOrSuccess),
             ),
           );

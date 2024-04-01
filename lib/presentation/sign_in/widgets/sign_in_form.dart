@@ -18,29 +18,36 @@ class SignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        state.authFailureOrSuccess.fold(() {}, (either) {
-          either.fold(
-            (f) {
-              Flushbar(
-                message: f.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server error',
-                  emailAlreadyInUse: (_) => 'Email already in use',
-                  invalidEmailAndPasswordCombination: (_) =>
-                      'Invalid email and password combination',
-                ),
-                backgroundColor: Colours.errorColor,
-              ).show(context);
-            },
-            (r) {
-              NoteOverviewRoute().go(context);
-              
-              context
-                  .read<AuthBloc>()
-                  .add(const AuthEvent.authCheckRequested());
-            },
-          );
-        });
+        // always listens
+        // if in [authFailureOrSuccess] some() arrives instead of none()
+        // operations are performed for left and right
+        // otherwise empty
+        state.authFailureOrSuccess.fold(
+          () {},
+          (either) {
+            either.fold(
+              (f) {
+                Flushbar(
+                  message: f.map(
+                    cancelledByUser: (_) => 'Cancelled',
+                    serverError: (_) => 'Server error',
+                    emailAlreadyInUse: (_) => 'Email already in use',
+                    invalidEmailAndPasswordCombination: (_) =>
+                        'Invalid email and password combination',
+                  ),
+                  backgroundColor: Colours.errorColor,
+                ).show(context);
+              },
+              (r) {
+                NoteOverviewRoute().go(context);
+
+                context
+                    .read<AuthBloc>()
+                    .add(const AuthEvent.authCheckRequested());
+              },
+            );
+          },
+        );
       },
       builder: (context, state) {
         return Form(

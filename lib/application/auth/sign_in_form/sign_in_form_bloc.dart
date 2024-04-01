@@ -7,6 +7,7 @@ import 'package:notes/domain/auth/auth_failure.dart';
 import 'package:notes/domain/auth/i_auth_facede.dart';
 import 'package:notes/domain/auth/value_objects.dart';
 import 'package:notes/domain/core/typedef/typedefs.dart';
+import 'package:notes/domain/core/value_objects.dart';
 
 part 'sign_in_form_bloc.freezed.dart';
 part 'sign_in_form_event.dart';
