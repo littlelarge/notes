@@ -42,13 +42,15 @@ class NoteColor extends ValueObject<Color> {
   const NoteColor._(super.value);
 
   static const List<Color> predefinedColors = [
-    Color(0xfffafafa), // canvas
-    Color(0xfffa8072), // salmon
-    Color(0xfffedc56), // mustard
-    Color(0xffd0f0c0), // tea
-    Color(0xfffca3b7), // flamingo
-    Color(0xff997950), // tortilla
-    Color(0xfffffdd0), // cream
+    // #c7f8ff #c7ceff #eac7ff #ffc7ea #ffcec7 #fff8c7 #dcffc7 #c7ffdc
+    Color(0xffc7ceff),
+    Color(0xffeac7ff),
+    Color(0xffffc7ea),
+    Color(0xffffcec7),
+    Color(0xfffff8c7),
+    Color(0xffdcffc7),
+    Color(0xffc7ffdc),
+    Color(0xffc9f9ff),
   ];
 }
 

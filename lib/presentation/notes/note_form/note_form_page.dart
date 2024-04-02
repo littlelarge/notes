@@ -8,6 +8,7 @@ import 'package:notes/application/notes/note_form/note_form_bloc.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/injection.dart';
 import 'package:notes/presentation/notes/note_form/widgets/body_field_widget.dart';
+import 'package:notes/presentation/notes/note_form/widgets/color_field_widget.dart';
 
 class NoteFormPage extends StatelessWidget {
   const NoteFormPage({required this.editedNote, super.key});
@@ -103,37 +104,40 @@ class NoteFormPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: BlocBuilder<NoteFormBloc, NoteFormState>(
-            buildWhen: (previous, current) =>
-                previous.isEditting != current.isEditting,
-            builder: (context, state) =>
-                Text(state.isEditting ? 'Edit a note' : 'Create a note'),
-          ),
-          actions: [
-            IconButton(
-              padding: EdgeInsets.symmetric(horizontal: 14.r),
-              onPressed: () {
-                context.read<NoteFormBloc>().add(const NoteFormEvent.saved());
-              },
-              icon: const Icon(Icons.check_rounded),
-            ),
-          ],
-        ),
-        body: BlocBuilder<NoteFormBloc, NoteFormState>(
+      appBar: AppBar(
+        title: BlocBuilder<NoteFormBloc, NoteFormState>(
           buildWhen: (previous, current) =>
-              previous.showErrorMessages != current.showErrorMessages,
-          builder: (context, state) {
-            return Form(
-                autovalidateMode: state.showErrorMessages,
-                child: const SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      BodyField(),
-                    ],
-                  ),
-                ));
-          },
-        ));
+              previous.isEditting != current.isEditting,
+          builder: (context, state) =>
+              Text(state.isEditting ? 'Edit a note' : 'Create a note'),
+        ),
+        actions: [
+          IconButton(
+            padding: EdgeInsets.symmetric(horizontal: 14.r),
+            onPressed: () {
+              context.read<NoteFormBloc>().add(const NoteFormEvent.saved());
+            },
+            icon: const Icon(Icons.check_rounded),
+          ),
+        ],
+      ),
+      body: BlocBuilder<NoteFormBloc, NoteFormState>(
+        buildWhen: (previous, current) =>
+            previous.showErrorMessages != current.showErrorMessages,
+        builder: (context, state) {
+          return Form(
+            autovalidateMode: state.showErrorMessages,
+            child: const SingleChildScrollView(
+              child: Column(
+                children: [
+                  BodyField(),
+                  ColorField(),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
