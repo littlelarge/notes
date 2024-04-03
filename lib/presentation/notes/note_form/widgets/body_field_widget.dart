@@ -40,8 +40,8 @@ class BodyField extends HookWidget {
               .body
               .value
               .fold(
-                (f) => f.maybeMap(
-                  notes: (notesFailure) => notesFailure.f.maybeMap(
+                (f) => f.maybeWhen(
+                  notes: (notesFailure) => notesFailure.maybeMap(
                     empty: (f) => 'Cannot be empty',
                     exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
                     orElse: () => null,
