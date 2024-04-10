@@ -7,7 +7,7 @@ abstract class NoteFormState with _$NoteFormState {
     required AutovalidateMode showErrorMessages,
     required bool isEditting,
     required bool isSaving, // to showing progress
-    required Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption,
+    required Option<RemoteNoteRequest> saveFailureOrSuccessOption,
   }) = _NoteFormState;
 
   factory NoteFormState.initial() => NoteFormState(
