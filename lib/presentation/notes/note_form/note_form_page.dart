@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:notes/application/notes/note_form/note_form_bloc.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/injection.dart';
+import 'package:notes/presentation/core/colours/colours.dart';
 import 'package:notes/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
 import 'package:notes/presentation/notes/note_form/widgets/add_todo_tile_widget.dart';
 import 'package:notes/presentation/notes/note_form/widgets/body_field_widget.dart';
@@ -76,7 +77,7 @@ class SavingInProgressOverlay extends StatelessWidget {
       ignoring: !isSaving,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
-        color: isSaving ? Colors.black.withOpacity(.8) : Colors.transparent,
+        color: isSaving ? Colours.blackWithOpacity08 : Colours.transparent,
         width: 1.sw,
         child: Visibility(
           visible: isSaving,
@@ -88,7 +89,7 @@ class SavingInProgressOverlay extends StatelessWidget {
               Text(
                 'Saving',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.white,
+                      color: Colours.primaryWhite,
                       fontSize: 32.r,
                     ),
               ),
