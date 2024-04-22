@@ -28,6 +28,7 @@ dependencies:
   go_router: ^13.2.1
   go_router_builder: ^2.4.1
   google_sign_in: ^6.2.1
+  implicitly_animated_reorderable_list_2: ^0.5.1
   injectable: ^2.3.2
   injectable_generator: ^2.4.2
   json_annotation: ^4.8.1
